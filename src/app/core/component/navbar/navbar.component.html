@@ -11,12 +11,12 @@
 
   <div [collapse]="isCollapsed" [isAnimated]="true" class="collapse navbar-collapse" id="myTogglerNav">
     <div class="navbar-nav ml-auto">
-      <a *ngIf="!auth.isAuthenticated"
+      <a *ngIf="!authService.isAuthenticated"
          class="nav-item nav-link btn btn-primary text-white"
          routerLink="/auth/login"
          routerLinkActive="active-link">Login</a>
-      <button (click)="auth.logout()"
-              *ngIf="auth.isAuthenticated"
+      <button (click)="authService.logout()"
+              *ngIf="authService.isAuthenticated"
               class="nav-item nav-link btn btn-primary text-white">Logout
       </button>
     </div>
