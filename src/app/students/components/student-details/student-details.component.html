@@ -1,1 +1,9 @@
-<p>student-details works!</p>
+<div class="container mt-5 justify-content-center d-flex">
+  <div *ngIf="student" class="card" style="width: 18rem;">
+    <img [src]="student.avatar" alt="avatar" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{student.first_name}}{{student.last_name}}</h5>
+      <p class="card-text">{{student.email}}</p>
+    </div>
+  </div>
+</div>
