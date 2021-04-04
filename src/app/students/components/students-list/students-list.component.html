@@ -1,1 +1,12 @@
-<p>students-list works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="list-group col-6">
+      <h1 class="list-group-item m-0 d-flex px-sm-3 px-lg-4">
+        Students
+      </h1>
+      <a *ngFor="let student of students" class="list-group-item d-flex" routerLink="{{student.id}}">
+        {{student.first_name}} {{student.last_name}}
+      </a>
+    </div>
+  </div>
+</div>
