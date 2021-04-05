@@ -13,8 +13,8 @@ export class StudentService {
   constructor(private  http: HttpClient) {
   }
 
-  allStudent(): Observable<Response<Student>> {
-    return this.http.get<Response<Student>>(`${environment.apiUrl}users`);
+  allStudent(page: string, perPage: string): Observable<Response<Student>> {
+    return this.http.get<Response<Student>>(`${environment.apiUrl}users`, {params: {page, per_page: perPage}});
   }
 
   getStudentById(id: number): Observable<{ data: Student }> {

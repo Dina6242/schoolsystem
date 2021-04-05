@@ -8,14 +8,23 @@ import { Student } from '../../interfaces/student';
   styleUrls: ['./students-list.component.scss'],
 })
 export class StudentsListComponent implements OnInit {
-  students?: Student[];
+  students: Student[];
+  total: number;
+  perPage = 6;
+  currentPage = 1;
 
   constructor(private studentService: StudentService) {
   }
 
   ngOnInit(): void {
-    this.studentService.allStudent().subscribe(res => {
+    this.pageChanged({page: 1});
+  }
+
+  pageChanged(event: any): void {
+    this.studentService.allStudent(event.page.toString(), this.perPage.toString()).subscribe(res => {
       this.students = res.data;
+      this.total = res.total;
+      this.perPage = res.per_page;
     });
   }
 }
