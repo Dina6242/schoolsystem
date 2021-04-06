@@ -13,4 +13,9 @@ describe('LoginService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('should return string', () => {
+    service.login({}).subscribe((post) => {
+      expect(post).toBe('token');
+    });
+  });
 });
