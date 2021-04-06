@@ -1,0 +1,31 @@
+<div class="container mt-5 text-center">
+  <div class="row justify-content-center">
+    <div class="list-group col-6">
+      <h1 class="list-group-item m-0 d-flex px-sm-3 px-lg-4">
+        Students
+      </h1>
+      <a *ngFor="let student of students" class="list-group-item d-flex" routerLink="{{student.id}}">
+        {{student.first_name}} {{student.last_name}}
+      </a>
+    </div>
+  </div>
+  <div class="row pagination-holder justify-content-center mt-3">
+    <div class="col-3">
+      <pagination (pageChanged)="pageChanged($event)"
+                  [(ngModel)]="currentPage"
+                  [itemsPerPage]="perPage"
+                  [totalItems]="total"></pagination>
+    </div>
+    <div class="col-3 text-right">
+      <select (change)="pageChanged({page: 1})"
+              [(ngModel)]="perPage"
+              aria-label="items per page"
+              class="form-select ml-auto">
+        <option>2</option>
+        <option>4</option>
+        <option>6</option>
+      </select>
+    </div>
+  </div>
+
+</div>
